@@ -1,14 +1,20 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package librarysystem;
 
-/**
- *
- * @author user
- */
-public class DVD {
+public class DVD extends LibraryItem{
+
+    @Override
+    public void add(String item) {
+        /////TBD
+    }
+
+    @Override
+    public void remove(String item) {
+        /////TBD
+    }
+
+    @Override
+    public void update(String item) {
+        /////TBD
+    }
     
 }
