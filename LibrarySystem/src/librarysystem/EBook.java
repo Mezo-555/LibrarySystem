@@ -7,8 +7,8 @@ public class EBook extends Book {
     private String fileFormat;
     private int fileSize;
 
-    public EBook(String fileFormat, int fileSize, String ISBN, String publisher, int publishYear, int numberOfPage, int edition, int id, String tittle, String category, Status s) {
-        super(ISBN, publisher, publishYear, numberOfPage, edition, id, tittle, category, s);
+    public EBook(String fileFormat, int fileSize, String ISBN, String publisher, String author, int publishYear, int numberOfPage, int edition, int id, String title, String category, Status s) {
+        super(ISBN, publisher, author, publishYear, numberOfPage, edition, id, title, category, s);
         this.fileFormat = fileFormat;
         this.fileSize = fileSize;
     }
@@ -17,8 +17,8 @@ public class EBook extends Book {
     }
 
     @Override
-    public String getTittle() {
-        return super.getTittle();
+    public String getTitle() {
+        return super.getTitle();
     }
 
     @Override
@@ -70,8 +70,8 @@ public class EBook extends Book {
     }
 
     @Override
-    public void setTittle(String tittle) {
-        super.setTittle(tittle);
+    public void setTitle(String title) {
+        super.setTitle(title);
     }
 
     @Override
@@ -128,41 +128,18 @@ public class EBook extends Book {
         return "\nEBook{" + "fileFormat=" + fileFormat + ", fileSize=" + fileSize + '}';
     }
 
+    // equals method
     @Override
     public boolean equals(Object obj) {
-        super.equals(obj);
         if (this == obj) {
             return true;
         }
-        if (obj == null) {
+        if (!(obj instanceof EBook)) {
             return false;
         }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final EBook other = (EBook) obj;
-        if (this.fileSize != other.fileSize) {
-            return false;
-        }
-        if (!Objects.equals(this.fileFormat, other.fileFormat)) {
-            return false;
-        }
-        return true;
+        EBook ebook = (EBook) obj;
+        return super.equals(obj) &&
+                Objects.equals(fileFormat, ebook.fileFormat) &&
+                Double.compare(ebook.fileSize, fileSize) == 0;
     }
-
-    @Override
-    public void update(String item) {
-        super.update(item);/////TBD
-    }
-
-    @Override
-    public void remove(String item) {
-        super.remove(item);/////TBD
-    }
-
-    @Override
-    public void add(String item) {
-        super.add(item);/////TBD
-    }
-    
 }

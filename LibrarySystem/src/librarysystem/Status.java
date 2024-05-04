@@ -1,5 +1,5 @@
 package librarysystem;
 
 public enum Status {
-    Available,Borrowed;
+    AVAILABLE,BORROWED,RESERVED;
 }

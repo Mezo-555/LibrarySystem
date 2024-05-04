@@ -9,8 +9,8 @@ public class Book extends LibraryItem{
     private int numberOfPage;
     private int edition;
 
-    public Book(String ISBN, String publisher, int publishYear, int numberOfPage, int edition, int id, String tittle, String category, Status s) {
-        super(id, tittle, category, s);
+    public Book(String ISBN, String publisher, String author, int publishYear, int numberOfPage, int edition, int id, String title, String category, Status s) {
+        super(id, title, author, category, s);
         this.ISBN = ISBN;
         this.publisher = publisher;
         this.publishYear = publishYear;
@@ -42,8 +42,8 @@ public class Book extends LibraryItem{
     }
     
     @Override
-    public String getTittle() {
-        return super.getTittle();
+    public String getTitle() {
+        return super.getTitle();
     }
 
     @Override
@@ -82,8 +82,8 @@ public class Book extends LibraryItem{
     }
     
     @Override
-    public void setTittle(String tittle) {
-        super.setTittle(tittle);
+    public void setTitle(String tittle) {
+        super.setTitle(tittle);
     }
 
     @Override
@@ -100,21 +100,7 @@ public class Book extends LibraryItem{
     public void setCategory(String category) {
         super.setCategory(category);
     }
-    @Override
-    public void add(String item) {
-    /////TBD
-    }
-
-    @Override
-    public void remove(String item) {
-    /////TBD
-    }
-
-    @Override
-    public void update(String item) {
-    /////TBD
-    }
-
+    
     @Override
     public String toString() {
         return super.toString() + "\nBook{" + "ISBN=" + ISBN + ", publisher=" + publisher + ", publishYear=" + publishYear + ", numberOfPage=" + numberOfPage + ", edition=" + edition + '}';
@@ -122,33 +108,19 @@ public class Book extends LibraryItem{
     
     @Override
     public boolean equals(Object obj) {
-        super.equals(obj);
         if (this == obj) {
             return true;
         }
-        if (obj == null) {
+        if (!(obj instanceof Book)) {
             return false;
         }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final Book other = (Book) obj;
-        if (this.publishYear != other.publishYear) {
-            return false;
-        }
-        if (this.numberOfPage != other.numberOfPage) {
-            return false;
-        }
-        if (this.edition != other.edition) {
-            return false;
-        }
-        if (!Objects.equals(this.ISBN, other.ISBN)) {
-            return false;
-        }
-        if (!Objects.equals(this.publisher, other.publisher)) {
-            return false;
-        }
-        return true;
+        Book book = (Book) obj;
+        return super.equals(obj) &&
+                Objects.equals(ISBN, book.ISBN) &&
+                publishYear == book.publishYear &&
+                numberOfPage == book.numberOfPage &&
+                Objects.equals(publisher, book.publisher) &&
+                edition == book.edition;
     }
 
     

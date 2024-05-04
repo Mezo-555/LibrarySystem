@@ -3,27 +3,34 @@ package librarysystem;
 import java.util.Objects;
 
 public abstract class LibraryItem {
+
     private int id;
-    private String tittle;
+    private String title;
+    private String author;
     private String category;
     private Status s;
 
-    public LibraryItem(int id, String tittle, String category, Status s) {
+    public LibraryItem(int id, String title, String author, String category, Status s) {
         this.id = id;
-        this.tittle = tittle;
+        this.title = title;
+        this.author = author;
         this.category = category;
         this.s = s;
     }
 
     public LibraryItem() {
     }
-    
+
     public int getId() {
         return id;
     }
 
-    public String getTittle() {
-        return tittle;
+    public String getTitle() {
+        return title;
+    }
+
+    public String getAuthor() {
+        return author;
     }
 
     public String getCategory() {
@@ -38,8 +45,12 @@ public abstract class LibraryItem {
         this.id = id;
     }
 
-    public void setTittle(String tittle) {
-        this.tittle = tittle;
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public void setAuthor(String author) {
+        this.author = author;
     }
 
     public void setCategory(String category) {
@@ -52,7 +63,7 @@ public abstract class LibraryItem {
 
     @Override
     public String toString() {
-        return "LibraryItem{" + "id=" + id + ", tittle=" + tittle + ", category=" + category + ", s=" + s + '}';
+        return "LibraryItem{" + "id=" + id + ", title=" + title + ", author=" + author + ", category=" + category + ", s=" + s + '}';
     }
 
     @Override
@@ -60,29 +71,14 @@ public abstract class LibraryItem {
         if (this == obj) {
             return true;
         }
-        if (obj == null) {
+        if (obj == null || getClass() != obj.getClass()) {
             return false;
         }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final LibraryItem other = (LibraryItem) obj;
-        if (this.id != other.id) {
-            return false;
-        }
-        if (!Objects.equals(this.tittle, other.tittle)) {
-            return false;
-        }
-        if (!Objects.equals(this.category, other.category)) {
-            return false;
-        }
-        if (this.s != other.s) {
-            return false;
-        }
-        return true;
+        LibraryItem that = (LibraryItem) obj;
+        return id == that.id
+                && Objects.equals(title, that.title)
+                && Objects.equals(author, that.author)
+                && Objects.equals(category, that.category)
+                && Objects.equals(s, that.s);
     }
-    
-    public abstract void add(String item);
-    public abstract void remove(String item);
-    public abstract void update(String item);
 }
