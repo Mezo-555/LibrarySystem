@@ -3,11 +3,12 @@ package librarysystem;
 import java.util.Objects;
 
 public class Journal extends LibraryItem{
-    private String ISSN, publicationFrequency;
+    private String ISSN, publicationFrequency, publisher;
 
-    public Journal(String ISSN, String publicationFrequency, int id, String title, String author, String category, Status s) {
+    public Journal(String ISSN, String publisher, String publicationFrequency, int id, String title, String author, String category, Status s) {
         super(id, title, author, category, s);
         this.ISSN = ISSN;
+        this.publisher = publisher;
         this.publicationFrequency = publicationFrequency;
     }
 
@@ -22,6 +23,14 @@ public class Journal extends LibraryItem{
         this.ISSN = ISSN;
     }
 
+    public String getPublisher() {
+        return publisher;
+    }
+
+    public void setPublisher(String publisher) {
+        this.publisher = publisher;
+    }
+    
     public String getPublicationFrequency() {
         return publicationFrequency;
     }
@@ -32,7 +41,7 @@ public class Journal extends LibraryItem{
 
     @Override
     public String toString() {
-        return super.toString() + "Journal{" + "ISSN=" + ISSN + ", publicationFrequency=" + publicationFrequency + '}';
+        return "Journal{" + "ISSN=" + ISSN + ", publicationFrequency=" + publicationFrequency + ", publisher=" + publisher + '}';
     }
     
     // equals method
@@ -47,6 +56,7 @@ public class Journal extends LibraryItem{
         Journal journal = (Journal) obj;
         return super.equals(obj) &&
                 Objects.equals(ISSN, journal.ISSN) &&
+                Objects.equals(publisher, journal.publisher) &&
                 Objects.equals(publicationFrequency, journal.publicationFrequency);
     }
 }

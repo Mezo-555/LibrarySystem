@@ -71,7 +71,7 @@ public class User {
 
     public static void register(String name, String password, String contactInfo) {
         LibraryDatabase data = new LibraryDatabase();
-        data.insert("User", name, password, contactInfo);
+        data.insert("User", null, name, password, contactInfo);
         data.disconnect();
         System.out.println("User registered successfully!");
     }
