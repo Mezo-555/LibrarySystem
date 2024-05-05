@@ -9,8 +9,12 @@ import java.sql.Statement;
 
 public class LibraryDatabase {
 
-    private static final String URL = "C:\\Users\\user\\Documents\\NetBeansProjects\\LibrarySystem\\LibraryDatabase.db";
+    private static final String URL = "jdbc:sqlite:C:/Users/user/Documents/NetBeansProjects/LibrarySystem/LibraryDatabase.db";
     private Connection connection;
+
+    public Connection getConnection() {
+        return connection;
+    }
 
     public LibraryDatabase() {
         connect();
