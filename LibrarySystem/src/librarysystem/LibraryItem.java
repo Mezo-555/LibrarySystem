@@ -10,8 +10,7 @@ public abstract class LibraryItem {
     private String category;
     private Status s;
 
-    public LibraryItem(int id, String title, String author, String category, Status s) {
-        this.id = id;
+    public LibraryItem(String title, String author, String category, Status s) {
         this.title = title;
         this.author = author;
         this.category = category;

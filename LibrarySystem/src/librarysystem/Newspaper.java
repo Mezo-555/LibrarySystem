@@ -5,8 +5,8 @@ import java.util.Objects;
 public class Newspaper extends LibraryItem {
     private String publicationFrequency, publisher;
 
-    public Newspaper(String publicationFrequency, String publisher, int id, String title, String author, String category, Status s) {
-        super(id, title, author, category, s);
+    public Newspaper(String publicationFrequency, String publisher, String title, String author, String category, Status s) {
+        super(title, author, category, s);
         this.publicationFrequency = publicationFrequency;
         this.publisher = publisher;
     }

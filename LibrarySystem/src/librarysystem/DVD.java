@@ -7,8 +7,8 @@ public class DVD extends LibraryItem {
     private String UPC, subtitle;
     private int releaseYear, runningTime;
 
-    public DVD(String UPC, String subtitle, int releaseYear, int runningTime, int id, String title, String author, String category, Status s) {
-        super(id, title, author, category, s);
+    public DVD(String UPC, String subtitle, int releaseYear, int runningTime, String title, String author, String category, Status s) {
+        super(title, author, category, s);
         this.UPC = UPC;
         this.subtitle = subtitle;
         this.releaseYear = releaseYear;
