@@ -80,7 +80,7 @@ public class User {
         LibraryDatabase data = new LibraryDatabase();
         data.update("User", "name", newUsername, "id = " + id);
         data.update("User", "password", newPassword, "id = " + id);
-        data.update("User", "contact info", contactInfo, "id = " + id);
+        data.update("User", "contactInfo", contactInfo, "id = " + id);
         data.disconnect();
         System.out.println("User details updated successfully!");
     }

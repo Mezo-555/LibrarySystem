@@ -9,8 +9,8 @@ public class Book extends LibraryItem{
     private int numberOfPage;
     private int edition;
 
-    public Book(String ISBN, String publisher, String author, int publishYear, int numberOfPage, int edition, int id, String title, String category, Status s) {
-        super(id, title, author, category, s);
+    public Book(String ISBN, String publisher, String author, int publishYear, int numberOfPage, int edition, String title, String category, Status s) {
+        super(title, author, category, s);
         this.ISBN = ISBN;
         this.publisher = publisher;
         this.publishYear = publishYear;
@@ -89,11 +89,6 @@ public class Book extends LibraryItem{
     @Override
     public void setS(Status s) {
         super.setS(s);
-    }
-
-    @Override
-    public void setId(int id) {
-        super.setId(id);
     }
 
     @Override

@@ -7,8 +7,8 @@ public class EBook extends Book {
     private String fileFormat;
     private int fileSize;
 
-    public EBook(String fileFormat, int fileSize, String ISBN, String publisher, String author, int publishYear, int numberOfPage, int edition, int id, String title, String category, Status s) {
-        super(ISBN, publisher, author, publishYear, numberOfPage, edition, id, title, category, s);
+    public EBook(String fileFormat, int fileSize, String ISBN, String publisher, String author, int publishYear, int numberOfPage, int edition, String title, String category, Status s) {
+        super(ISBN, publisher, author, publishYear, numberOfPage, edition, title, category, s);
         this.fileFormat = fileFormat;
         this.fileSize = fileSize;
     }
@@ -92,11 +92,6 @@ public class EBook extends Book {
     @Override
     public void setNumberOfPage(int numberOfPage) {
         super.setNumberOfPage(numberOfPage);
-    }
-
-    @Override
-    public void setId(int id) {
-        super.setId(id);
     }
 
     @Override
